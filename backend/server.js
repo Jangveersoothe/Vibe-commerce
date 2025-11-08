@@ -110,6 +110,7 @@ app.post("/api/cart/update", (req, res) => {
   if (!item) return res.status(400).json({ error: "Item not in cart" });
 
   // Update qty
+
   db.prepare(`UPDATE cart SET qty = qty + ? WHERE productId = ?`).run(
     qty,
     productId
